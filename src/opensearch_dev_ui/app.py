@@ -6,14 +6,16 @@ from opensearch_dev_ui.index import index_tab
 def main():
     st.set_page_config(layout="wide")
     
-    tabs = st.tabs(["Configuration", "Index"])
+    tabs = st.tabs(["Configuration", "Index", "Explore"])
     
     with tabs[0]:
         config_tab()
 
     with tabs[1]:
         index_tab()
-
+    
+    with tabs[2]:
+        explore_tab()
 
 
 def json_editor_tab():
@@ -25,6 +27,11 @@ def json_editor_tab():
             st.success("Valid JSON")
         except json.JSONDecodeError:
             st.error("Invalid JSON")
+
+
+def explore_tab():
+    st.header("Explore")
+    st.write("This is the Explore tab where data from the selected index will be displayed.")
 
 
 if __name__ == "__main__":

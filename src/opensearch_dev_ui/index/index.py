@@ -26,3 +26,16 @@ def index_tab():
         if selected_index is not None:
             index_info = client.get_index_info(selected_index)
             st.write(index_info)
+            
+            if st.button("View Data"):
+                set_session_state("selected_index", selected_index)
+                st.experimental_rerun()
+            
+            if st.button("Edit Mapping"):
+                st.write("Edit Mapping functionality to be implemented")
+            
+            if st.button("Clone Index"):
+                st.write("Clone Index functionality to be implemented")
+            
+            if st.button("Delete Index"):
+                st.write("Delete Index functionality to be implemented")
