@@ -6,8 +6,9 @@ authors = [
     { name = "Sanjay", email = "44315700+sanjumsanthosh@users.noreply.github.com" }
 ]
 dependencies = [
-    "streamlit>=1.40.0",
     "requests>=2.32.3",
+    "streamlit ==1.37.1",
+    "streamlit-pydantic @ git+https://github.com/lukasmasuch/streamlit-pydantic",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

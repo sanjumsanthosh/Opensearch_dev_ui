@@ -86,6 +86,10 @@ class OpenSearch():
         }
         response = self._POST(f"{self.endpoint}/{index_name}/_search", data)
         return response.json()
+
+    def add_record(self, index_name: str, data: dict):
+        response = self._POST(f"{self.endpoint}/{index_name}/_doc", data)
+        return response.json()
         
 client = None
 

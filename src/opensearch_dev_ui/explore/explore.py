@@ -47,6 +47,7 @@ def explore_tab():
                 key="dataframe",
                 on_select="rerun",
                 selection_mode=["single-row", "single-column"],
+                width=1000
             )
 
             if event and event["selection"]["rows"].__len__() > 0 and get_session_state("tab") == "explore":

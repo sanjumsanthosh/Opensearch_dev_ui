@@ -20,10 +20,12 @@ services:
         soft: 65536 # Maximum number of open files for the opensearch user - set to at least 65536
         hard: 65536
     volumes:
-      - opensearch-data1:/usr/share/opensearch/data # Creates volume called opensearch-data1 and mounts it to the container
+      - opensearch-data1:/usr/share/opensearch/data
+      - ./docker_scripts/custom-entry.sh:/usr/local/bin/custom-entrypoint.sh # Creates volume called opensearch-data1 and mounts it to the container
     ports:
       - 9200:9200 # REST API
       - 9600:9600 # Performance Analyzer
+    entrypoint: ["/usr/local/bin/custom-entrypoint.sh"]
     networks:
       - opensearch-net # All of the containers will join the same Docker bridge network
 

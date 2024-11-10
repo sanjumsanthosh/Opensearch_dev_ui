@@ -3,11 +3,12 @@ import json
 from opensearch_dev_ui.config import config_tab
 from opensearch_dev_ui.index import index_tab
 from opensearch_dev_ui.explore import explore_tab
+from opensearch_dev_ui.record_add import record_add_tab
 
 def main():
     st.set_page_config(layout="wide")
     
-    tabs = st.tabs(["Configuration", "Index", "Explore"])
+    tabs = st.tabs(["Configuration", "Index", "Explore", "Record Add"])
     
     with tabs[0]:
         config_tab()
@@ -18,16 +19,8 @@ def main():
     with tabs[2]:
         explore_tab()
 
-
-def json_editor_tab():
-    st.header("JSON Editor")
-    json_input = st.text_area("Edit JSON", "{}")
-    if st.button("Validate JSON"):
-        try:
-            json.loads(json_input)
-            st.success("Valid JSON")
-        except json.JSONDecodeError:
-            st.error("Invalid JSON")
+    with tabs[3]:
+        record_add_tab()
 
 
 if __name__ == "__main__":
