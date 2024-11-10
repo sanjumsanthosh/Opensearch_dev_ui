@@ -80,8 +80,11 @@ class OpenSearch():
         print(f"Delete Index Response: {response.json()}")
         return response.json()
 
-    def search_index(self, index_name: str):
-        response = self._GET(f"{self.endpoint}/{index_name}/_search")
+    def search_index(self, index_name: str, limit: int = 100):
+        data = {
+            "size": limit
+        }
+        response = self._POST(f"{self.endpoint}/{index_name}/_search", data)
         return response.json()
         
 client = None
